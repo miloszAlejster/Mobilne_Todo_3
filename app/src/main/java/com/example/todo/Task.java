@@ -13,18 +13,22 @@ public class Task {
         id = UUID.randomUUID();
         date = new Date();
     }
-    public void setName(CharSequence s){
-        name = s.toString();
+    public UUID getId() {
+        return id;
     }
-    public Date getDate(){
-        return date;
-    }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public boolean isDone(){ return done; }
-    public UUID getId() { return id; }
-    public void setDone(Boolean checkStatus){
-        done = checkStatus;
+    public Date getDate() {
+        return date;
+    }
+    public boolean isDone() {
+        return done;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

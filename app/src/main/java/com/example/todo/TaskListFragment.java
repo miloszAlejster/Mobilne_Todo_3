@@ -17,27 +17,16 @@ import java.util.List;
 
 public class TaskListFragment extends Fragment {
     public static final String KEY_EXTRA_TASK_ID = "extra-task-id";
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView;
+    private TaskAdapter adapter = null;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task_list, container, false);
         recyclerView = view.findViewById(R.id.task_recycler_view);
-        adapter = recyclerView.getAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateView();
         return view;
-    }
-    private void updateView(){
-        TaskStorage taskStorage = TaskStorage.getInstance();
-        List<Task> tasks = taskStorage.getTasks();
-        if(adapter == null){
-            adapter = new TaskAdapter(tasks);
-            recyclerView.setAdapter(adapter);
-        } else {
-            adapter.notifyDataSetChanged();
-        }
     }
     private class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private Task task;
@@ -81,6 +70,16 @@ public class TaskListFragment extends Fragment {
         @Override
         public int getItemCount(){
             return tasks.size();
+        }
+    }
+    private void updateView(){
+        TaskStorage taskStorage = TaskStorage.getInstance();
+        List<Task> tasks = taskStorage.getTasks();
+        if(adapter == null){
+            adapter = new TaskAdapter(tasks);
+            recyclerView.setAdapter(adapter);
+        } else {
+            adapter.notifyDataSetChanged();
         }
     }
     @Override
