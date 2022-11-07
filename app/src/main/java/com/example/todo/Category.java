@@ -1,2 +1,6 @@
-package com.example.todo;public enum Category {
+package com.example.todo;
+
+public enum Category {
+    STUDIES,
+    HOME
 }

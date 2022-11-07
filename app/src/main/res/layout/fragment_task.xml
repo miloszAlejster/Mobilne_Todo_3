@@ -11,7 +11,8 @@
         android:text="@string/name_label"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
     <EditText
         android:id="@+id/task_name"
         android:layout_width="match_parent"
@@ -22,11 +23,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/details_label"
-        android:textAlignment="center" />
-    <Button
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryDark"/>
+    <Spinner
+        android:id="@+id/task_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
         android:id="@+id/task_date"
-        android:layout_width="match_parent"
-        android:layout_height="70dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:autofillHints=""
+        android:inputType="date"
+        android:padding="@dimen/task_item_padding"/>
     <CheckBox
         android:id="@+id/task_done"
         android:layout_width="match_parent"
